@@ -19,3 +19,13 @@ cannot load such file -- less
 solution: 
 
 https://github.com/seyhunak/twitter-bootstrap-rails
+
+2,
+jason@ubuntu:~/webapp/rails_project/depot$ rake test::units --trace
+rake aborted!
+Don't know how to build task 'test::units'
+
+solution:
+jason@ubuntu:~/webapp/rails_project/depot$ ruby -Itest test/unit/product_test.rb 
+
+
