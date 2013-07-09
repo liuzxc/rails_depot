@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  fixtures :products
   # test "the truth" do
   #   assert true
   # end
@@ -48,6 +49,16 @@ class ProductTest < ActiveSupport::TestCase
 
     product.title = 'ruby on rails'
     assert product.valid?
+  end
+  
+  test "product is not valid without a unique title" do
+    product = Product.new(:title => products(:ruby).title,
+      :description => "this is a good book",
+      :image_url => 'image/test.png',
+      :price => 9.99)
+    
+    assert !product.save
+    assert_equal "has already been taken", product.errors[:title].join('; ')
   end
 
 
