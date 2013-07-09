@@ -1,8 +1,8 @@
 <h1>Your Pragmatic Catalog</h1>
 
 <% @products.each do |product| %>
-<%= image_tag(product.image_url) %>
-<h3><%= product.title %></h3>
-<%= sanitize(product.description) %>
-<%= product.price %>
+  <%= image_tag(product.image_url) %>
+  <h3><%= product.title %></h3>
+  <%= sanitize(product.description) %>
+  <%= number_to_currency(product.price) %> <p>
 <% end %>
