@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   default_scope :order => 'title'
+  has_many :line_items
   
   attr_accessible :description, :image_url, :price, :title
   validates :description, :image_url, :title, :presence => true
@@ -11,4 +12,15 @@ class Product < ActiveRecord::Base
   }
   validates :title, :length => { :minimum => 10 }
 
+  before_destroy :ensure_not_referenced_by_any_line_item
+
+  def ensure_not_referenced_by_any_line_item
+    if line_items.empty?
+      return true
+    else
+      errors.add(:base, 'line items present')
+      return false
+    end
+  end
+  
 end
