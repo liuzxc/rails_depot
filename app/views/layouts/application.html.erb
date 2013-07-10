@@ -42,6 +42,9 @@
         <h4><address>
           <strong>Liu Xingqi</strong><br>
           <a href=''>https://github.com/liuxingqi</a>
+          <% if session[:counter] > 5 %>
+          <h5>User accessed numbers:  <%= session[:counter] %></h5>
+          <% end %>
         </address></h4>
       </div>
     </div>
