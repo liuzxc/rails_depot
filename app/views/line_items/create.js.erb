@@ -1,1 +1,2 @@
-$('#tabbable').html("<%= escape_javascript(render(@cart)) %>");
+$('#tabbable').html("<%=j render @cart %>").show();
+$('#tabbable').html("<%=j render @cart %>");

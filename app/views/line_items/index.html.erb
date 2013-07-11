@@ -18,7 +18,7 @@
         <td><%= link_to line_item.id, line_item_path(line_item) %></td>
         <td><%= line_item.product_id %></td>
         <td><%= line_item.cart_id %></td>
-        <td><%=l line_item.created_at %></td>
+        <td><%= line_item.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_line_item_path(line_item), :class => 'btn btn-mini' %>

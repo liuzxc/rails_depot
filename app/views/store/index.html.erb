@@ -3,13 +3,13 @@
 	<% @products.each do |product| %>
       <li class="span4">
       	<div class="thumbnail">
-      	<a href="#" class="thumbnail"><%= link_to(image_tag(product.image_url),
+      	<a href="#" class="thumbnail"><%= link_to(image_submit_tag(product.image_url),
       	line_items_path(:product_id => product),
-      	html_options = {:method => :post } )%></a>
+      	html_options = {:method => :post, :remote => true } )%></a>
         <h4><%= product.title %></h4>
         <%= number_to_currency(product.price) %>
         <%= button_to 'Add to cart', line_items_path(:product_id => product),
-        :remote => true%>
+        :remote => true %>
         </div>
       </li>
 <% end %>
