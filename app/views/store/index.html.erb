@@ -8,7 +8,8 @@
       	html_options = {:method => :post } )%></a>
         <h4><%= product.title %></h4>
         <%= number_to_currency(product.price) %>
-        <%= button_to 'Add to cart', line_items_path(:product_id => product)%>
+        <%= button_to 'Add to cart', line_items_path(:product_id => product),
+        :remote => true%>
         </div>
       </li>
 <% end %>

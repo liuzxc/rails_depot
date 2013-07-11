@@ -3,7 +3,11 @@
 one:
   product_id: 1
   cart_id: 1
+  quantity: 2
+  price: 12.12
 
 two:
   product_id: 1
   cart_id: 1
+  quantity: 1
+  price: 12.12

@@ -1,0 +1,10 @@
+<tr> 
+     <td><%= line_item.product.title %> </td>
+     <td><%= line_item.quantity %> </td>
+     <td><%= number_to_currency(line_item.total_price) %> </td>
+     <td><%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              line_item,
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger btn-mini' %></td>
+</tr>

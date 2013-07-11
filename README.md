@@ -16,7 +16,7 @@ Showing /home/jason/webapp/rails_project/depot/app/views/layouts/application.htm
 cannot load such file -- less
   (in /home/jason/webapp/rails_project/depot/app/assets/stylesheets/bootstrap_and_overrides.css.less)
 
-solution: 
+Solution: 
 
 https://github.com/seyhunak/twitter-bootstrap-rails
 
@@ -25,7 +25,11 @@ jason@ubuntu:~/webapp/rails_project/depot$ rake test::units --trace
 rake aborted!
 Don't know how to build task 'test::units'
 
-solution:
+Solution:
 jason@ubuntu:~/webapp/rails_project/depot$ ruby -Itest test/unit/product_test.rb 
 
+3,
+ActionView::MissingTemplate (Missing template line_items/create, application/create with {:locale=>[:en, :en], :formats=>[:js, :html], :handlers=>[:builder, :erb, :coffee]}
 
+Solution:
+http://stackoverflow.com/questions/10148134/rails-3-2-2-not-executing-rjs
