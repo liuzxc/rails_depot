@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+
 
   private
 
@@ -10,7 +12,6 @@ class ApplicationController < ActionController::Base
   	session[:cart_id] = cart.id
   	cart
   end
-  
 
   
 end
