@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-    @cart =current_cart
     @user = User.new
 
     respond_to do |format|
