@@ -3,6 +3,11 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def new_user
+    @user = User.new
+    render  "users/_form"
+  end
+
   def create
   	if user= User.authenticate(params[:name],params[:password])
   		session[:user_id] = user.id
@@ -16,5 +21,18 @@ class SessionsController < ApplicationController
   	session[:user_id] = nil
   	redirect_to store_url :notice => "Logged out"
   end
+
+  def register
+     @user = User.new(params[:user])
+
+    if @user.valid?
+      @user.save
+      session[:user_id] = @user.id
+      redirect_to store_url
+    else
+      redirect_to new_user_path
+   end
+   end
+
   
 end

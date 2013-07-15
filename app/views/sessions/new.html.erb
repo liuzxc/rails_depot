@@ -1,14 +1,31 @@
+<!-- <div class="container-fluid">
+<div class="row-fluid">
+<div class='span6'>
+<form class="form-horizontal"> -->
 <%= form_tag do %>
-	<h4>Please Log In</h4>
-	<div>
-	<label for="name" >Name:</label>
-	<%= text_field_tag :name, params[:name] %>
+
+	<div class="control-group">
+	    <label class="control-label" for="inputName">Name</label>
+	<div class="controls">
+	<%= text_field_tag :name, params[:name]%>
 	</div>
-	<div>
-	<label for="password" >Password:</label>
+   </div>
+
+    <div class="control-group">
+		<label class="control-label" for="inputPassword">Password</label>
+		<div class="controls">
 	<%= password_field_tag :password, params[:password] %>
 	</div>
-	<div>
-	<%= submit_tag "Login" %>
-	</div
+   </div>
+
+   <div class="control-group">
+	<div class="controls">
+	<%= submit_tag "Login", :class => 'btn btn-primary' %>
+	<%= submit_tag "Clear Form", :type => 'reset', :class => 'btn' %>
+	</div>
+    </div>
 <% end %>
+<!-- </form>
+</div>
+</div>
+</div> -->
