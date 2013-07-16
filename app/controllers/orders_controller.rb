@@ -4,7 +4,12 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @cart = current_cart
-    @orders = Order.all
+    @user = current_user
+    if not @user.admin?
+      @orders = @user.orders.all
+    else
+      @orders = Order.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +20,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order = Order.find(params[:id])
+
+    @order = @user.orders.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,7 +53,8 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @cart = current_cart
-    @order = Order.new(params[:order])
+    @user=current_user
+    @order = @user.orders.create(params[:order])
     @order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
