@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :authorize, :only => [:new, :create]
+  before_filter      :admin_user, :only => :destroy
   # GET /users
   # GET /users.json
   def index
@@ -81,4 +82,20 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+
+  def current_user
+    user=User.find(session[:user_id])
+    rescue ActiveRecord::RecordNotFound
+      user
+  end
+
+  def admin_user
+    if current_user == nil or not current_user.admin?
+      redirect_to store_url
+      flash[:error] = "You are not admin user!"
+    end
+  end
+
 end

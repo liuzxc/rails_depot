@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   	cart
   end
 
+
+
+
   protected
 
   def authorize
@@ -21,5 +24,7 @@ class ApplicationController < ActionController::Base
   		redirect_to login_url, :notice => "Please login in"
   	end
   end
-  	
+  
+
+
 end

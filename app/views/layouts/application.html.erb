@@ -35,9 +35,7 @@
             </form> -->
           <li><%= button_to "CREATE ACCOUNT", new_user_path, :class => 'btn' %></li>
             <% else %>
-                <li><%= link_to "Sign out", logout_path, :method => :delete %></li>
-    <!--            <a class='brand'><%= User.find_by_id(session[:user_id]).name %></a> -->
-           
+                <li><%= link_to "Sign out", logout_path, :method => :delete %></li>           
             <% end %>
           </ul>
         </div>
