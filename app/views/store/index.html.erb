@@ -1,3 +1,10 @@
+<%= form_tag products_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :class => "btn btn-info"%>
+  </p>
+<% end %>
+
  <div class='row-fluid'>
  <ul class="thumbnails">
 	<% @products.each do |product| %>

@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
   skip_before_filter :authorize, :only => [:show]
-  before_filter      :admin_user, :only => [:index, :new, :edit, :update, :create, :destroy]
+  before_filter      :admin_user, :only => [:new, :edit, :update, :create, :destroy]
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.search(params[:search])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html {render "store/index"}# index.html.erb
       format.json { render json: @products }
     end
   end
