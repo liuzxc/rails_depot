@@ -14,6 +14,18 @@ class ApplicationController < ActionController::Base
   	cart
   end
 
+  def current_user
+    user=User.find(session[:user_id])
+    rescue ActiveRecord::RecordNotFound
+      user
+  end
+
+  def admin_user
+    if current_user == nil or not current_user.admin?
+      redirect_to store_url
+      flash[:error] = "You are not admin user!"
+    end
+  end
 
 
 

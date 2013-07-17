@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @cart = current_cart
+    @user = current_user
     if @cart.line_items.empty?
       redirect_to store_url
       return
@@ -47,7 +48,8 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @cart = current_cart
-    @order = Order.new(params[:order])
+    @user = current_user
+    @order = @user.orders.create(params[:order])
     @order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
