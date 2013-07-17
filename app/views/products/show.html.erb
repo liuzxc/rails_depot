@@ -1,20 +1,15 @@
-<%- model_class = Product -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-</div>
-
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+
   <dd><%= @product.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+
   <dd><%= @product.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image_url) %>:</strong></dt>
-  <dd><%= @product.image_url %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-  <dd><%= @product.price %></dd>
+
+  <dd><%= image_tag(@product.image_url) %></dd>
+
+  <dd><%= number_to_currency(@product.price) %></dd>
 </dl>
 
-<div class="form-actions">
+<!-- <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               products_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -25,3 +20,4 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+ -->

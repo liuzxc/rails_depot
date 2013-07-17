@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users=[]
+    if current_user.admin?
+      @users = User.all
+    else
+      @users << current_user
+    end
 
     respond_to do |format|
       format.html # index.html.erb

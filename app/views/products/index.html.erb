@@ -19,12 +19,12 @@
       <tr>
         <td><%= link_to product.id, product_path(product) %></td>
         <td><%= product.title %></td>
-        <td><%= product.description %></td>
-        <td><%= product.image_url %></td>
+        <td><%= truncate(product.description, :length => 100) %></td>
+        <td><%= image_tag(product.image_url) %></td>
         <td><%= product.price %></td>
         <td><%=l product.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_product_path(product), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       product_path(product),

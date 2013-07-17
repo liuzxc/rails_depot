@@ -1,3 +1,11 @@
-<h1>Welcome</h1>
+<p class="text-info"><h1>Welcome!</h1></p>
 It's <%= Time.now %>
-We have <%= link_to pluralize(@total_orders, "order"), orders_path %>.
+
+<ul><h4>
+<li>We have <%= link_to pluralize(@total_orders, "order"), orders_path %>.</li></br>
+<li>We have <%= link_to pluralize(@total_products, "product"),
+    products_path %>.</li></br>
+<li>We have <%= link_to pluralize(@total_users, "user"),
+    users_path %>.</li>
+<h4></ul>
+
