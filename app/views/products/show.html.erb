@@ -8,7 +8,9 @@
 
   <dd><%= number_to_currency(@product.price) %></dd>
 </dl>
-
+        <%= button_to 'Add to cart', 
+            line_items_path(:product_id => @product),
+            :remote => true %>
 <!-- <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               products_path, :class => 'btn'  %>

@@ -5,9 +5,10 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.search(params[:search])
+    @science  = Product.where("category = ?", "Science")
 
     respond_to do |format|
-      format.html {render "store/index"}# index.html.erb
+      format.html { render "store/index" }# index.html.erb
       format.json { render json: @products }
     end
   end

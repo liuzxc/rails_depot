@@ -2,7 +2,8 @@ class Product < ActiveRecord::Base
   default_scope :order => 'title'
   has_many :line_items
   
-  attr_accessible :description, :image_url, :price, :title
+  attr_accessible :description, :image_url, :price, :title, :category
+  CATEGORY = ['Fiction','Historical','Literature','Science','Law','Educational']
   validates :description, :image_url, :title, :presence => true
   validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
   validates :title, :uniqueness => true

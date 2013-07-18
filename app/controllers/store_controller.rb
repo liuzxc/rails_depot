@@ -3,6 +3,7 @@ class StoreController < ApplicationController
 
   def index
     @products = Product.all
+    @science  = Product.where("category = ?", "Science")
     @cart = current_cart
     if session[:counter].nil?
       session[:counter] = 0

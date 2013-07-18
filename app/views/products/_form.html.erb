@@ -23,6 +23,13 @@
       <%= f.text_field :price, :class => 'text_field' %>
     </div>
   </div>
+    <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :category, Product::CATEGORY,
+                   :prompt => 'Select a category', :class => 'text_field' %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
