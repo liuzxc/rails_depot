@@ -1,13 +1,27 @@
 class FavoritesController < ApplicationController
 
   def index
-  	@favorite = Favorite.all
+    user = current_user
+    @products = []  
+  	user.favorites.each do |favorite|
+      @products << Product.find(favorite.product_id)
+    end
+
+    unless @products.empty?
+      render "store/index" and return
+    else
+      redirect_to store_url, :notice => "no any favorite!"
+    end
+
+    end
+      # if @products
+      #    render "store/index" 
+      # end
   	# @product  = @favorite.product
 
   	# if @product
   	# 	render "products/index"
   	# end
-  end
 
   def new 
   	@favorite = Favorite.new
@@ -35,5 +49,5 @@ class FavoritesController < ApplicationController
 
   def destroy
   end
-  
+
 end

@@ -28,7 +28,7 @@
             <li><%= link_to "Users", users_url %></li>
             <li><%= link_to "Orders", orders_url %></li>
             <li><a href="#myModal" data-toggle="modal">Cart</a></li>
-            <li><%= link_to "About Us" %></li>
+            <li><%= link_to "My favorites", favorites_url %></li>
             <% if session[:user_id] == nil %>
                 <li><%= link_to "Sign in", login_url %></li> 
                 <li><%= button_to "CREATE ACCOUNT", new_user_path, :class => 'btn'%></li>
