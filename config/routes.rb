@@ -1,4 +1,5 @@
 Depot::Application.routes.draw do
+
   get "admin" => "admin#index"
 
   controller :sessions do
@@ -9,7 +10,8 @@ Depot::Application.routes.draw do
     delete 'logout' => :destroy
   end
   
-
+  resources :favorites
+  
   resources :users
 
 

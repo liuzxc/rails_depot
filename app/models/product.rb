@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   default_scope :order => 'title'
   has_many :line_items
+  has_many :favorite
   
   attr_accessible :description, :image_url, :price, :title, :category
   CATEGORY = ['Fiction','Historical','Literature','Science','Law','Educational']
