@@ -33,10 +33,12 @@
                 <li><%= link_to "Sign in", login_url %></li> 
                 <li><%= button_to "CREATE ACCOUNT", new_user_path, :class => 'btn'%></li>
             <% else %>
-                <li><%= link_to "Sign out", logout_path, :method => :delete %></li>           
+                <li><%= link_to "Sign out", logout_path, :method => :delete %></li>  
+                <a class="brand pull-right" href="#">Welcome!<%= link_to(User.find(session[:user_id]).name, new_account_path) %></a>         
             <% end %>
           </ul>
         </div>
+        
       </div>
     </div>
   </div>

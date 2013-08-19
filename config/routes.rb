@@ -1,5 +1,8 @@
 Depot::Application.routes.draw do
 
+  resources :accounts
+
+
   get "admin" => "admin#index"
 
   controller :sessions do
