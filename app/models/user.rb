@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => true
   validates :password, :confirmation => true
-  attr_accessible :password, :password_confirmation, :name
+  attr_accessible :password, :password_confirmation, :name, :hashed_password,:salt,:admin
 
   validate :password_must_be_present
 

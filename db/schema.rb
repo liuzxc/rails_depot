@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(:version => 20130723124057) do
     t.string   "pay_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
   create_table "products", :force => true do |t|
