@@ -33,3 +33,7 @@ ActionView::MissingTemplate (Missing template line_items/create, application/cre
 
 Solution:
 http://stackoverflow.com/questions/10148134/rails-3-2-2-not-executing-rjs
+
+
+FATAL: Peer authentication failed for user "postgres" rails
+http://stackoverflow.com/questions/9797640/rails-3-2-2-or-3-2-1-postgresql-9-1-3-ubuntu-11-10-connection-error
